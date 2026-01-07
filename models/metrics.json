@@ -1,0 +1,18 @@
+{
+  "rows": 284807,
+  "cols": 31,
+  "fraud_count": 492,
+  "nonfraud_count": 284315,
+  "test_pr_auc": 0.8767009341227943,
+  "test_roc_auc": 0.984521428858544,
+  "chosen_threshold": 0.9207173585891724,
+  "precision_at_threshold": 0.9080459770114943,
+  "recall_at_threshold": 0.8061224489795918,
+  "confusion_matrix": {
+    "tn": 56855,
+    "fp": 9,
+    "fn": 19,
+    "tp": 79
+  },
+  "scale_pos_weight": 577.2868020304569
+}
