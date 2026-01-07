@@ -3,9 +3,14 @@ data/
 *.csv
 *.parquet
 
-# Models (commit later only if small)
+# Models (ignore by default)
 models/*.joblib
 models/*.pkl
+
+# Allow committing specific artifacts
+!models/xgb_model.joblib
+!models/app_sample.parquet
+!models/metrics.json
 
 # Python cache / env
 __pycache__/
@@ -14,3 +19,4 @@ __pycache__/
 
 # OS
 .DS_Store
+
