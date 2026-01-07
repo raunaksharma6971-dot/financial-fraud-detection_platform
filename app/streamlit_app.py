@@ -14,18 +14,22 @@ SAMPLE_PATH = Path("models/app_sample.parquet")
 st.set_page_config(page_title="Fraud Detection Platform", layout="wide")
 st.title("💳 Financial Fraud Detection & Analytics Platform")
 
+
 @st.cache_resource
 def load_model():
     return joblib.load(MODEL_PATH)
+
 
 @st.cache_data
 def load_metrics():
     with open(METRICS_PATH, "r") as f:
         return json.load(f)
 
+
 @st.cache_data
 def load_sample():
     return pd.read_parquet(SAMPLE_PATH)
+
 
 # Validate required files
 missing = [p for p in [MODEL_PATH, METRICS_PATH, SAMPLE_PATH] if not p.exists()]
@@ -87,7 +91,7 @@ with left:
         title="p_fraud by True Class",
     )
     fig.add_vline(x=threshold)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 with right:
     st.subheader("Confusion Matrix (Selected Threshold)")
@@ -112,7 +116,7 @@ with a1:
         title="Amount Distribution (log scale on y)",
         log_y=True,
     )
-    st.plotly_chart(fig_amt, use_container_width=True)
+    st.plotly_chart(fig_amt, width="stretch")
 
 with a2:
     st.subheader("Top Flagged Transactions")
@@ -145,4 +149,5 @@ fig_trade.add_trace(go.Scatter(x=trade["threshold"], y=trade["review_volume"], n
 fig_trade.add_trace(go.Scatter(x=trade["threshold"], y=trade["fraud_capture_rate"], name="Fraud Capture Rate"))
 fig_trade.add_vline(x=threshold)
 fig_trade.update_layout(xaxis_title="Threshold")
-st.plotly_chart(fig_trade, use_container_width=True)
+st.plotly_chart(fig_trade, width="stretch")
+
