@@ -100,7 +100,7 @@ with right:
         index=["Actual Legit", "Actual Fraud"],
         columns=["Pred Legit", "Pred Fraud"],
     )
-    st.dataframe(cm, use_container_width=True)
+    st.dataframe(cm, width="stretch")
 
 st.divider()
 
@@ -123,7 +123,7 @@ with a2:
     top = df.sort_values("p_fraud", ascending=False).head(15)[
         ["Time", "Amount", "p_fraud", "Class", "pred_fraud"]
     ]
-    st.dataframe(top, use_container_width=True)
+    st.dataframe(top, width="stretch")
 
 st.divider()
 
