@@ -1,0 +1,16 @@
+# Data (do not commit)
+data/
+*.csv
+*.parquet
+
+# Models (commit later only if small)
+models/*.joblib
+models/*.pkl
+
+# Python cache / env
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
